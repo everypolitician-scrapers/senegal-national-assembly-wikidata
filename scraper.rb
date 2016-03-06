@@ -4,6 +4,7 @@
 require 'wikidata/fetcher'
 
 names = EveryPolitician::Wikidata.morph_wikinames(source: 'tmtmtmtm/senegal-national-assembly', column: 'wikiname')
-EveryPolitician::Wikidata.scrape_wikidata(names: { fr: names })
-warn EveryPolitician::Wikidata.notify_rebuilder
+ids = EveryPolitician::Wikidata.wdq('claim[39:20757571]')
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { fr: names })
 
